@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { centers } from "../../data/fakeData";
 
 export const CenterDescription = () => {
@@ -6,24 +7,26 @@ export const CenterDescription = () => {
       {centers.map((center) => (
         <>
           <div className="w-[200px] h-[200px] shadow-lg rounded-xl cursor-pointer transform transition-transform hover:-translate-y-2">
-            <div className="w-full h-[60%]">
-              <img
-                className="w-full h-full rounded-xl object-cover"
-                src={center.image}
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col items-start p-2">
-              <span className="font-bold text-sm">{center.title}</span>
-              <span className="text-sm text-gray">{center.street}</span>
-              <span
-                className={`text-sm ${
-                  center.isOpen ? "text-green" : "text-red"
-                } font-bold`}
-              >
-                {center.isOpen ? <span>Abierto</span> : <span>Cerrado</span>}
-              </span>
-            </div>
+            <Link to="/reservation">
+              <div className="w-full h-[60%]">
+                <img
+                  className="w-full h-full rounded-xl object-cover"
+                  src={center.image}
+                  alt=""
+                />
+              </div>
+              <div className="flex flex-col items-start p-2">
+                <span className="font-bold text-sm">{center.title}</span>
+                <span className="text-sm text-gray">{center.street}</span>
+                <span
+                  className={`text-sm ${
+                    center.isOpen ? "text-green" : "text-red"
+                  } font-bold`}
+                >
+                  {center.isOpen ? <span>Abierto</span> : <span>Cerrado</span>}
+                </span>
+              </div>
+            </Link>
           </div>
         </>
       ))}
