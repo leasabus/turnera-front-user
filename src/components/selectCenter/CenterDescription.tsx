@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { centers } from "../../data/fakeData";
+import { useBranch } from "../../context/centerContext";
 
 export const CenterDescription = () => {
+  const { setSelectedBranch } = useBranch();
+
   return (
     <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-4 mb-4 p-4 items-center justify-center w-full  ">
       {centers.map((center) => (
         <>
           <div className="w-[200px] h-[200px] shadow-lg rounded-xl cursor-pointer transform transition-transform hover:-translate-y-2">
-            <Link to="/reservation">
+            <Link onClick={() => setSelectedBranch(center)} to="/reservation">
               <div className="w-full h-[60%]">
                 <img
                   className="w-full h-full rounded-xl object-cover"

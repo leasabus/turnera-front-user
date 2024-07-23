@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../../public/assets/logo/logo.png";
 import { PaydmentSecurity } from "../../components/paydmentSecurity/PaydmentSecurity";
 
@@ -11,7 +12,7 @@ export const SelectReservation = () => {
 
       <div className="flex flex-col items-start justify-center  gap-10 mb-4 h-[250px]">
         <span className="w-[250px] h-[40px] flex items-center p-4 rounded  bg-slate-200 cursor-pointer transform transition-transform hover:-translate-y-1">
-          Reservar una cita
+          <Link to="/services">Reservar una cita</Link>
         </span>
         <span className="w-[250px] h-[40px] flex items-center p-4 rounded  bg-slate-200 cursor-pointer transform transition-transform hover:-translate-y-1">
           Reservar cita de grupo
