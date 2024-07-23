@@ -4,7 +4,7 @@ import { PaydmentSecurity } from "../../components/paydmentSecurity/PaydmentSecu
 
 export const SelectReservation = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-auto">
+    <div className="flex flex-col items-center justify-center w-full h-[600px] md:h-auto">
       <div className="flex flex-col items-center justify-center gap-4 mt-4">
         <img className="w-20" src={logo} alt="" />
         <span className="text-xl">Reserva tu cita</span>
