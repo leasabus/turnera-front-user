@@ -24,7 +24,7 @@ export const SelectServices = () => {
           </div>
         </Link>
       </div>
-      <div className="w-full grid grid-cols-2  gap-40">
+      <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-10  md:gap-40">
         <div className="w-full flex flex-col gap-4 items-start justify-center  mt-6">
           {services.map((service) => (
             <ServicesList
@@ -35,7 +35,7 @@ export const SelectServices = () => {
             />
           ))}
         </div>
-        <div className=" rounded-xl h-[300px] w-[350px]  mt-10 flex flex-col items-start justify-start shadow-xl px-10">
+        <div className=" rounded-xl h-[250px] md:h-[300px] w-[100%] md:w-[350px]  mt-10 flex flex-col items-start justify-start shadow-xl px-10">
           <ServicesSelection />
         </div>
       </div>

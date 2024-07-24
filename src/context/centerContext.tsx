@@ -1,11 +1,12 @@
 // BranchContext.tsx
-import React, {
+import {
   createContext,
   useState,
   ReactNode,
   useContext,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
 import { Centers } from "../data/fakeData";
 
@@ -20,14 +21,18 @@ interface BranchProviderProps {
   children: ReactNode;
 }
 
-// Creamos el contexto con un valor inicial undefined
 const BranchContext = createContext<BranchContextProps | undefined>(undefined);
 
-// Creamos el proveedor del contexto
 const BranchProvider = ({ children }: BranchProviderProps) => {
-  const [selectedBranch, setSelectedBranch] = useState<Centers | null>(null);
+  const [selectedBranch, setSelectedBranch] = useState<Centers | null>(() => {
+    const savedBranch = sessionStorage.getItem("selectedBranch");
+    return savedBranch !== null ? JSON.parse(savedBranch) : null;
+  });
 
-  console.log("Local seleccionado", selectedBranch);
+  useEffect(() => {
+    sessionStorage.setItem("selectedBranch", JSON.stringify(selectedBranch));
+  }, [selectedBranch]);
+
   return (
     <BranchContext.Provider value={{ selectedBranch, setSelectedBranch }}>
       {children}

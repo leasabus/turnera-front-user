@@ -1,3 +1,4 @@
+//Todo: informacion dinamica recuperada de la seleccion de servicio
 export const ServicesSelection = () => {
   return (
     <>
@@ -9,7 +10,7 @@ export const ServicesSelection = () => {
           <span className="text-md text-gray">30 min</span>
         </div>
 
-        <button className="relative top-[50%] left-[30%] bg-blue text-white font-bold px-2 py-1  rounded">
+        <button className="relative top-[25%] md:top-[50%] left-[30%] bg-blue text-white font-bold px-2 py-1  rounded">
           Continuar
         </button>
       </div>
