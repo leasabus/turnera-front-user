@@ -1,11 +1,30 @@
 import { Link } from "react-router-dom";
 import { useBranch } from "../../context/centerContext";
-import { services } from "../../data/fakeData";
+import { Services, services } from "../../data/fakeData";
 import { ServicesList } from "../../components/selectServices/ServicesList";
 import { ServicesSelection } from "../../components/selectServices/ServicesSelection";
+import { useEffect, useState } from "react";
 
 export const SelectServices = () => {
   const { selectedBranch } = useBranch();
+  const [selectedService, setSelectedService] = useState<Services | null>({
+    name: "Corte de pelo",
+    price: 7000,
+    time: "30min",
+    id: "4",
+  });
+
+  useEffect(() => {
+    const savedService = sessionStorage.getItem("selectedService");
+    if (savedService) {
+      setSelectedService(JSON.parse(savedService));
+    }
+  }, []);
+
+  const handleServiceSelect = (service: Services) => {
+    setSelectedService(service);
+    sessionStorage.setItem("selectedService", JSON.stringify(service));
+  };
 
   return (
     <section className="flex flex-col items-center justify-center w-full p-4">
@@ -32,11 +51,13 @@ export const SelectServices = () => {
               price={service.price}
               time={service.time}
               id={service.id}
+              key={service.id}
+              onSelect={() => handleServiceSelect(service)}
             />
           ))}
         </div>
         <div className=" rounded-xl h-[250px] md:h-[300px] w-[100%] md:w-[350px]  mt-10 flex flex-col items-start justify-start shadow-xl px-10">
-          <ServicesSelection />
+          <ServicesSelection service={selectedService} />
         </div>
       </div>
     </section>
