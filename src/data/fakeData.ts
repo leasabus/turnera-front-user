@@ -1,5 +1,6 @@
 import local1 from "../../public/assets/centers/local1.jpg";
 import local2 from "../../public/assets/centers/local2.jpg";
+import barber from "../../public/assets/professionals/profile.jpg";
 
 export interface Centers {
   id: number;
@@ -14,6 +15,13 @@ export interface Services {
   name: string;
   price: number;
   time: string;
+}
+
+export interface Employee {
+  id: string;
+  name: string;
+  profession: string;
+  picture?: string;
 }
 
 export const centers: Centers[] = [
@@ -52,5 +60,32 @@ export const services: Services[] = [
     name: "Corte + color",
     price: 15000,
     time: "2 hr",
+  },
+];
+
+export const employees: Employee[] = [
+  {
+    id: "1",
+    name: "Iván",
+    profession: "Barbero",
+    picture: barber,
+  },
+  {
+    id: "2",
+    name: "Rodrigo",
+    profession: "Barbero",
+    picture: barber,
+  },
+  {
+    id: "3",
+    name: "Leandro",
+    profession: "Barbero",
+    picture: barber,
+  },
+  {
+    id: "4",
+    name: "Marcos",
+    profession: "Barbero",
+    picture: barber,
   },
 ];

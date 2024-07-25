@@ -1,5 +1,6 @@
 import React from "react";
 import { Services } from "../../data/fakeData";
+import { Link } from "react-router-dom";
 
 interface ServicesSelectionProps {
   service: Services | null;
@@ -22,9 +23,12 @@ export const ServicesSelection: React.FC<ServicesSelectionProps> = ({
           <span className="text-md text-gray">{service?.time}</span>
         </div>
 
-        <button className="relative top-[25%] md:top-[50%] left-[30%] bg-blue text-white font-bold px-2 py-1  rounded">
+        <Link
+          to="/professionals"
+          className="relative top-[25%] md:top-[50%] left-[30%] bg-blue text-white font-bold px-2 py-1  rounded"
+        >
           Continuar
-        </button>
+        </Link>
       </div>
     </>
   );
